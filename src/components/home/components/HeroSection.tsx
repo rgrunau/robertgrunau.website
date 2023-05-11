@@ -36,7 +36,7 @@ const View = ({author, iconToRender}: HeroSectionviewProps) => (
         ))}
       </div>
     </div>
-    <div className='p-2 sm:text-center lg:order-1 lg:text-left xl:w-1/2'>
+    <div className='p-2 text-center lg:order-1 lg:text-left xl:w-1/2'>
       <h1 className='text-5xl lg:text-7xl text-white'>I make the things you see on the screen</h1>
     </div>
   </div>
