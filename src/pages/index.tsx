@@ -83,8 +83,8 @@ export default function Home({data}: HomePageDataProps) {
       >
         <div className='flex flex-col sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl sm:mx-auto items-center justify-center gap-8'>
           <div className='w-full flex flex-col lg:flex-row items-center justify-between p-2 xl:p-0 gap-8'>
-            <div className='flex flex-col items-center justify-center gap-8'>
-              <div className='w-full flex items-center justify-evenly lg:order-2'>
+            <div className='flex flex-col items-center justify-center gap-8 lg:order-2 xl:w-1/2'>
+              <div className='w-full flex items-center justify-evenly'>
                 <div className='flex flex-col items-center justify-center'>
                   <FaUserAstronaut className='text-6xl lg:text-8xl text-yellow-200'/>
                 </div>
@@ -105,7 +105,7 @@ export default function Home({data}: HomePageDataProps) {
                 ))}
               </div>
             </div>
-            <div className='p-2 sm:text-center lg:order-1 lg:text-left'>
+            <div className='p-2 sm:text-center lg:order-1 lg:text-left xl:w-1/2'>
               <h1 className='text-5xl lg:text-7xl text-white'>I make the things you see on the screen</h1>
             </div>
           </div>
