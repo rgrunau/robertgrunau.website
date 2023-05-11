@@ -1,10 +1,53 @@
+import { request } from '@/lib/datocms'
 import { FaArrowLeft, FaLaptopCode, FaUserAstronaut, FaPlus } from 'react-icons/fa'
 import { Inter, IBM_Plex_Mono } from 'next/font/google'
+import { DatoCmsHomePageData } from '@/components/home/const/interfaces'
 import  Layout  from '@/components/layout/Layout'
 import Link from 'next/link'
+
+
+
 const inter = Inter({ subsets: ['latin'] })
 const plexMono = IBM_Plex_Mono({ weight:['400'] ,subsets: ['latin'] })
-export default function Home() {
+
+const HOMEPAGE_QUERY = `
+  query HomePage {
+    author {
+      authorname
+      shortBio
+      skills {
+        id
+        skillType
+      }
+      jobTitles {
+        id
+        job
+      }
+    }
+  }
+`;
+
+export async function getStaticProps() {
+  const data = await request({
+    query: HOMEPAGE_QUERY,
+  })
+
+  return {
+    props: { data }
+  }
+}
+
+interface HomePageDataProps {
+  data: DatoCmsHomePageData
+}
+
+
+
+
+
+
+export default function Home({data}: HomePageDataProps) {
+  console.log(data)
   return (
     <Layout>
       <header className='w-80 sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl mx-auto flex justify-between align-center px-2 py-4 border-b-2 border-text-white'>
@@ -23,8 +66,8 @@ export default function Home() {
         id='mainContent'
         className={`flex w-screen min-h-screen flex-col items-center justify-between ${inter.className}`}
       >
-        <div className='flex flex-col sm:w-9/12 md:w-5/6 sm:mx-auto items-center justify-center gap-8'>
-          <div className='w-full xl:max-w-7xl flex flex-col lg:flex-row items-center justify-between p-2 gap-8'>
+        <div className='flex flex-col sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl sm:mx-auto items-center justify-center gap-8'>
+          <div className='w-full flex flex-col lg:flex-row items-center justify-between p-2 xl:p-0 gap-8'>
             <div className='w-full flex items-center justify-evenly lg:order-2'>
               <div className='flex flex-col items-center justify-center'>
                 <FaUserAstronaut className='text-6xl lg:text-8xl text-yellow-200'/>
