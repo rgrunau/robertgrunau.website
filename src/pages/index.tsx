@@ -1,11 +1,8 @@
 import { request } from '@/lib/datocms'
 import { IBM_Plex_Mono } from 'next/font/google'
 import { DatoCmsHomePageData, Skill } from '@/components/home/const/interfaces'
-import  Layout  from '@/components/layout/Layout'
-import Header from '@/components/layout/Header'
 import HeroSection from '@/components/home/components/HeroSection'
 import BioSection from '@/components/home/components/BioSection'
-import Footer from '@/components/layout/Footer'
 import SpaceSection from '@/components/home/components/SpaceSection'
 
 export const plexMono = IBM_Plex_Mono({ weight:['400'] ,subsets: ['latin'] })
