@@ -1,4 +1,4 @@
-import { request } from 'graphql-request'
+import { request } from '@/lib/datocms'
 import { plexMono } from '..';
 import { useQuerySubscription } from 'react-datocms';
 
@@ -14,28 +14,32 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview=false }) {
+  
   const graphqlRequest = {
     query: `
-      query ProjectBySlug($slug: String) {
-        project(filter: {slug: {eq: $slug}}) {
-          title
-          slug
-          coverImage {
-            responsiveImage {
-              alt
+    query ProjectBySlug($slug: String) {
+      project(filter: {slug: {eq: $slug}}) {
+        coverImage {
+          responsiveImage {
+            alt
             aspectRatio
             base64
-            bgColor
             height
+            bgColor
             sizes
             src
             srcSet
-            title
             webpSrcSet
+            title
             width
           }
         }
+        id
+        slug
+        title
       }
+    }
+    
     `,
     preview,
     variables: {
