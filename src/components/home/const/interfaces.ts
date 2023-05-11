@@ -31,6 +31,7 @@ interface HomePageDataReturn {
 }
 
 export interface CoverImage {
+  id: string,
   responsiveImage: responsiveImage,
 }
 export interface Author {
