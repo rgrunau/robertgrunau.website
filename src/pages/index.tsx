@@ -7,7 +7,7 @@ const plexMono = IBM_Plex_Mono({ weight:['400'] ,subsets: ['latin'] })
 export default function Home() {
   return (
     <Layout>
-      <header className='w-80 sm:w-9/12 mx-auto flex justify-between align-center px-2 py-4 border-b-2 border-text-white'>
+      <header className='w-80 sm:w-9/12 md:w-5/6 mx-auto flex justify-between align-center px-2 py-4 border-b-2 border-text-white'>
         <div className='flex align-center justify-center'>
           <Link href="/" className={`text-4xl text-white flex flex-col align-center justify-center ${plexMono.className}`}>
               <div className='text-white'> {`{RJG}`}</div>
@@ -23,7 +23,7 @@ export default function Home() {
         id='mainContent'
         className={`flex w-screen min-h-screen flex-col items-center justify-between ${inter.className}`}
       >
-        <div className='flex flex-col sm:w-9/12 sm:mx-auto items-center justify-center gap-8'>
+        <div className='flex flex-col sm:w-9/12 md:w-5/6 sm:mx-auto items-center justify-center gap-8'>
           <div className='w-full flex flex-col items-center justify-between p-2 gap-8'>
             <div className='w-full flex items-center justify-evenly'>
               <div className='flex flex-col items-center justify-center'>
