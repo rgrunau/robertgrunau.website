@@ -7,10 +7,11 @@ import  Layout  from '@/components/layout/Layout'
 import Link from 'next/link'
 import {SiTypescript, SiReactquery, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiReact} from 'react-icons/si'
 import {TbBrandNextjs} from 'react-icons/tb'
+import Header from '@/components/layout/Header'
 
 
 const inter = Inter({ subsets: ['latin'] })
-const plexMono = IBM_Plex_Mono({ weight:['400'] ,subsets: ['latin'] })
+export const plexMono = IBM_Plex_Mono({ weight:['400'] ,subsets: ['latin'] })
 
 const HOMEPAGE_QUERY = `
   query HomePage {
@@ -65,18 +66,7 @@ export default function Home({data}: HomePageDataProps) {
   }, []);
   return (
     <Layout>
-      <header className='w-80 sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl mx-auto flex justify-between align-center px-2 py-4 border-b-2 border-text-white'>
-        <div className='flex align-center justify-center'>
-          <Link href="/" className={`text-4xl text-white flex flex-col align-center justify-center ${plexMono.className}`}>
-              <div className='text-white'> {`{RJG}`}</div>
-          </Link>
-        </div>
-        <div className='flex flex-col justify-center items-center'>
-          <button className='w-[36] h-[36] flex justify-center items-center bg-white text-black px-4 py-2 rounded-lg b-0'>
-            <FaArrowLeft />
-          </button>
-        </div>
-      </header>
+      <Header />
       <main
         id='mainContent'
         className={`flex w-screen min-h-screen flex-col items-center justify-between ${inter.className}`}
