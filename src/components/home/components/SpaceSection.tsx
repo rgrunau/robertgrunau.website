@@ -1,4 +1,3 @@
-import exp from 'constants';
 import {BsRocketTakeoff} from 'react-icons/bs'
 
 const SpaceSection = () => (
