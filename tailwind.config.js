@@ -20,10 +20,15 @@ module.exports = {
         'move-ship': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(1000%)' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
         }
       },
       animation: {
         'move-rocket': 'move-ship 5s linear infinite',
+        'wiggle': 'wiggle 1s ease-in-out infinite',
       },
     },
   },

@@ -1,8 +1,9 @@
 import { request } from "@/lib/datocms";
 import { plexMono } from ".";
 import { FaUserAstronaut } from "react-icons/fa";
-import Input from "@/components/common/inputs/Input";
-import TextArea from "@/components/common/inputs/TextArea";
+import {BsRocket} from 'react-icons/bs'
+import ContactForm from "@/components/common/form/ContactForm";
+
 
 const ABOUT_QUERY = `
   query AboutPage {
@@ -46,41 +47,22 @@ export default function About({data}: AboutPageProps) {
       className={`flex w-screen min-h-screen flex-col items-center md:justify-start gap-8${plexMono.className}`}
     >
       <section className='flex flex-col w-full sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl sm:mx-auto items-center gap-8'>
-        <div className='w-full flex flex-col items-center p-2 xl:p-0 gap-8'>
-          <div className="flex flex-col sm:flex-row">
-            <div className='flex flex-col items-center justify-center gap-8 sm:w-1/2'>
-              <FaUserAstronaut className='text-7xl lg:text-8xl text-yellow-200'/>
+        <div className='w-full flex flex-col items-center p-2 xl:p-0 gap-8 mx-auto'>
+          <div className="flex flex-col items-center sm:flex-row lg:justify-center lg:mx-auto">
+            <div className='flex flex-col items-center justify-center sm:w-1/2 lg:w-1/4 lg:items-start lg:justify-start'>
+              <FaUserAstronaut className='text-7xl lg:text-9xl text-yellow-200'/>
             </div>
-            <div className='p-2 w-full sm:w-1/2'>
-              <article className='text-sm lg:text-4xl text-white' dangerouslySetInnerHTML={{__html: data.about.aboutText}}/>
+            <div className='flex flex-col items-center py-4 px-2 w-full sm:w-1/2'>
+              <article className='text-sm lg:text-md py-4 text-text-white' dangerouslySetInnerHTML={{__html: data.about.aboutText}}/>
             </div>
           </div>
-          <div className='p-2 w-full xl:w-1/2 border-2 border-yellow-200 rounded-lg'>
-            <form className='flex flex-col items-center justify-center gap-4 p-2'>
-              <Input
-                label='name'
-                type='text'
-                placeholder="What's your name?"
-              />
-              <Input
-                label='email'
-                type='email'
-                placeholder="What's your email?"
-              />
-
-              <TextArea
-                label='message'
-                placeholder='What do you want to say?'
-              />
+          <div className='flex p-2 w-full max-w-7xl justify-center lg:justify-center'>
+            <ContactForm />
+            <div className="hidden lg:w-1/2 lg:flex lg:justify-center lg:items-center text-text-white">
               <div>
-                <button 
-                  className='w-full p-2 rounded-lg bg-yellow-200 text-purple py-2 px-4'
-                  type='submit' 
-                  >
-                    Send
-                  </button>
+                <BsRocket className='text-9xl text-yellow-200 animate-wiggle motion-reduce:none'/>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </section>
