@@ -8,7 +8,7 @@ import { Author, Skill } from '../const/interfaces';
 
 interface HeroSectionviewProps {
   author: Author
-   iconToRender: (skill: Skill) => JSX.Element | null,
+  iconToRender: (skill: Skill) => JSX.Element | null,
 }
 
 const View = ({author, iconToRender}: HeroSectionviewProps) => (
