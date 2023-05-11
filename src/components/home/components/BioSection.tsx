@@ -9,7 +9,7 @@ const BioSection = ({shortBio}: BioSectionProps) => (
   <section className='flex flex-col sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl sm:mx-auto items-center justify-center gap-8 md:gap-4 md:py-8 mt-12'>
     <div className='flex flex-col items-center justify-center gap-8'>
       <div className='self-start p-2'>
-        <h2 className='text-3xl md:text-4xl xl:text-5xl text-white'>"Short" Bio</h2> 
+        <h2 className='text-3xl md:text-4xl xl:text-5xl text-white'>{`"Short" Bio`}</h2> 
       </div>
       <div className='flex items-center gap-8 p-2'>
         <div>
