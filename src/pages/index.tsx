@@ -5,8 +5,8 @@ import  Layout  from '@/components/layout/Layout'
 import Header from '@/components/layout/Header'
 import HeroSection from '@/components/home/components/HeroSection'
 import BioSection from '@/components/home/components/BioSection'
-import {BsRocketTakeoff} from 'react-icons/bs'
 import Footer from '@/components/layout/Footer'
+import SpaceSection from '@/components/home/components/SpaceSection'
 
 export const plexMono = IBM_Plex_Mono({ weight:['400'] ,subsets: ['latin'] })
 
@@ -54,13 +54,7 @@ export default function Home({data}: HomePageDataProps) {
       >
         <HeroSection author={data.author} />
         <BioSection shortBio={data.author.shortBio} />
-        <section className='w-full bg-blue h-60 flex items-center overflow-hidden'>
-          <div>
-            <BsRocketTakeoff
-              className='text-9xl text-slate-200 rotate-45 animate-move-rocket ' 
-            />
-          </div>
-        </section>
+        <SpaceSection />
       </main>
       <Footer />
     </Layout>
