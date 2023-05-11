@@ -114,10 +114,9 @@ export default function Post({subscription, preview=false}: PostProps) {
         </div>
         <div className='w-full flex flex-col items-center justify-center gap-4 my-6'>
           {projectImages && projectImages.map((image: CoverImage) => (
-            <div className='ounded-lg border-2 border-text-white my-8'>
+            <div key={image.id} className='ounded-lg border-2 border-text-white my-8'>
               <Image
                 data={image.responsiveImage}
-                key={image.id}
                 className='rounded-lg'
                />
             </div>

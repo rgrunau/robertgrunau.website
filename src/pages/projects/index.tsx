@@ -46,7 +46,6 @@ interface ProjectsPageDataProps {
 }
 
 export default function Projects({data}: ProjectsPageDataProps) {
-  console.log(data);
   const { allProjects } = data ?? {};
   return (
     <main
