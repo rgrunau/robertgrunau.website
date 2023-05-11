@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Header from './Header';
+import Footer from './Footer';
 interface LayoutProps {
   children: React.ReactNode
 }
@@ -14,7 +16,9 @@ const Layout = ({ children }: LayoutProps) => (
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       {children}
+      <Footer />
     </div>
   </>
 );

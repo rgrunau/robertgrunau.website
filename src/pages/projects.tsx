@@ -1,7 +1,7 @@
 import { plexMono } from ".";
 import { FaSpaceShuttle } from "react-icons/fa";
 
-const About = () => (
+const Projects = () => (
   <main
       id='mainContent'
       className={`flex w-screen min-h-screen flex-col items-center justify-center md:justify-start gap-8 p-10 ${plexMono.className}`}
@@ -19,4 +19,4 @@ const About = () => (
 )
 
 
-export default About;
+export default Projects;

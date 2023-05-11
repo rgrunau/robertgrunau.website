@@ -46,8 +46,7 @@ interface HomePageDataProps {
 export default function Home({data}: HomePageDataProps) {
   console.log(`Hey, did you look here to see if I accidentally left my api key in the code? Or accidentally shipped a console.log?`);
   return (
-    <Layout>
-      <Header />
+    <>
       <main
         id='mainContent'
         className={`flex w-screen min-h-screen flex-col items-center justify-between md:justify-start ${plexMono.className}`}
@@ -56,7 +55,6 @@ export default function Home({data}: HomePageDataProps) {
         <BioSection shortBio={data.author.shortBio} />
         <SpaceSection />
       </main>
-      <Footer />
-    </Layout>
+    </>
   )
 }
