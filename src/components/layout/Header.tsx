@@ -10,11 +10,28 @@ const Header = () => (
           <div className='text-white'> {`{RJG}`}</div>
       </Link>
     </div>
-    <div className='flex flex-col justify-center items-center'>
-      <button className='w-[36] h-[36] flex justify-center items-center bg-white text-black px-4 py-2 rounded-lg b-0'>
+    {/* <div className=' hidden flex flex-col justify-center items-center'>
+      <button className='w-[36] h-[36] flex justify-center items-center bg-yellow-200 text-black px-4 py-2 rounded-full b-0'>
         <FaArrowLeft />
       </button>
+    </div> */}
+    <div className='flex items-center'>
+      <nav className='flex justify-center items-center'>
+        <ul className='flex justify-center items-center'>
+          <li className='text-white text-xl mx-2'>
+            <Link href='/about'>
+              about
+            </Link>
+          </li>
+          <li className='text-white text-xl mx-2'>
+            <Link href='/projects'>
+              projects
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </div>
+    
   </header>
 );
 
