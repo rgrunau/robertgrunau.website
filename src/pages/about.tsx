@@ -1,8 +1,7 @@
 import { request } from "@/lib/datocms";
 import { plexMono } from ".";
 import { FaUserAstronaut } from "react-icons/fa";
-import {BsRocket} from 'react-icons/bs'
-import ContactForm from "@/components/common/form/ContactForm";
+import { FormEvent } from "react";
 
 
 const ABOUT_QUERY = `
@@ -40,7 +39,9 @@ interface AboutPageProps {
 
 export default function About({data}: AboutPageProps) {
   console.log(data);
-
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  }
   return (
     <main
       id='mainContent'
@@ -54,14 +55,6 @@ export default function About({data}: AboutPageProps) {
             </div>
             <div className='flex flex-col items-center py-4 px-2 w-full sm:w-1/2'>
               <article className='text-sm lg:text-md py-4 text-text-white' dangerouslySetInnerHTML={{__html: data.about.aboutText}}/>
-            </div>
-          </div>
-          <div className='flex p-2 w-full max-w-7xl justify-center lg:justify-center'>
-            <ContactForm />
-            <div className="hidden lg:w-1/2 lg:flex lg:justify-center lg:items-center text-text-white">
-              <div>
-                <BsRocket className='text-9xl text-yellow-200 animate-wiggle motion-reduce:none'/>
-              </div>
             </div>
           </div>
         </div>
