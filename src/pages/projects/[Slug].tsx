@@ -4,6 +4,7 @@ import { useQuerySubscription, QueryListenerOptions, } from 'react-datocms';
 import { CoverImage, Project } from '@/components/home/const/interfaces';
 import { ProjectsPageData } from '@/components/projects/const/interfaces';
 import {Image} from 'react-datocms'
+import MainContainer from '@/components/common/MainContainer';
 
 
 export async function getStaticPaths() {
@@ -96,10 +97,7 @@ export default function Post({subscription, preview=false}: PostProps) {
   const { title, coverImage, excerpt, projectImages } = project ?? {};
 
   return (
-    <main
-        id='mainContent'
-        className={`flex w-screen min-h-screen flex-col items-center justify-between md:justify-start ${plexMono.className}`}
-      >
+    <MainContainer>
       <div className='w-80 sm:w-9/12 md:w-5/6 xl:w-max-[960] felx flex-col justify-center mx-auto p-2 text-text-white gap-x-4'>
         <div className='w-full sm:w-9/12 md:w-5/6 w-max-[960] mx-auto'>
           <Image 
@@ -123,6 +121,6 @@ export default function Post({subscription, preview=false}: PostProps) {
           ))}
         </div>
       </div>
-    </main>
+    </MainContainer>
   )
 }

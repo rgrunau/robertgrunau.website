@@ -3,6 +3,7 @@ import { plexMono } from "../index";
 import { ProjectsPageData } from "@/components/projects/const/interfaces";
 import {Image} from 'react-datocms'
 import Link from "next/link";
+import MainContainer from "@/components/common/MainContainer";
 
 
 const PROJECTS_QUERY = `
@@ -48,10 +49,7 @@ interface ProjectsPageDataProps {
 export default function Projects({data}: ProjectsPageDataProps) {
   const { allProjects } = data ?? {};
   return (
-    <main
-      id='mainContent'
-      className={`flex w-screen min-h-screen flex-col items-centergap-8 p-10 ${plexMono.className}`}
-    >
+    <MainContainer>
         <div className='flex flex-col sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl sm:mx-auto items-center justify-center gap-8 text-text-white'>
           <div className='w-full flex flex-col sm:flex-row sm:justify-between sm:items-center gap-8'>
             {allProjects.map((project) => (
@@ -78,7 +76,7 @@ export default function Projects({data}: ProjectsPageDataProps) {
             ))}
           </div>
         </div>
-    </main>
+    </MainContainer>
   )
 } 
 
