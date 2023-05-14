@@ -1,5 +1,4 @@
 import { request } from '@/lib/datocms'
-import { plexMono } from '..';
 import { useQuerySubscription, QueryListenerOptions, } from 'react-datocms';
 import { CoverImage, Project } from '@/components/home/const/interfaces';
 import { ProjectsPageData } from '@/components/projects/const/interfaces';

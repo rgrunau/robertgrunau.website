@@ -1,5 +1,4 @@
 import { request } from "@/lib/datocms";
-import { plexMono } from ".";
 import { FaUserAstronaut } from "react-icons/fa";
 import { AboutPage } from "@/components/about/const/interfaces";
 import MainContainer from "@/components/common/MainContainer";

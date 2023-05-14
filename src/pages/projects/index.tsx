@@ -1,5 +1,4 @@
 import { request } from "@/lib/datocms";
-import { plexMono } from "../index";
 import { ProjectsPageData } from "@/components/projects/const/interfaces";
 import {Image} from 'react-datocms'
 import Link from "next/link";
