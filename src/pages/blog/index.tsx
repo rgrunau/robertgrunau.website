@@ -1,12 +1,40 @@
 import { request } from '@/lib/datocms'
 import MainContainer from "@/components/common/MainContainer";
-import { ResponsiveImageType } from 'react-datocms/image';
+import { Image, ResponsiveImageType } from 'react-datocms/image';
+import Link from 'next/link';
+import { CoverImage } from '@/components/home/const/interfaces';
 
 
+interface ViewProps {
+  allBlogPosts: BlogPost[],
+  noPosts: boolean
+}
 
-const View = () => (
+const View = ({allBlogPosts, noPosts}: ViewProps) => (
   <MainContainer>
-    <h1>Blog</h1>
+      {noPosts && (
+        <div>
+          <h1>There are no posts yet</h1>
+        </div>
+      )}
+      {!noPosts && allBlogPosts.map((post) => (
+        <div
+          className='p-4 w-[90%] mx-auto md:w-1/2 lg:w-1/3 border-b-2 border-gray-200 text-text-white mb-6'
+          key={post.id}
+        >
+          <Link 
+            className='w-full flex flex-col gap-4'
+            href={`/blog/${post.slug}`}>
+            <Image data={post.postHero.responsiveImage} />
+            <div>
+              <h1 className='text-xl font-normal'>{post.title}</h1>
+            </div>
+            <div className='text-md font-thin'>
+              <article dangerouslySetInnerHTML={{__html: post.excerpt}} />
+            </div>
+          </Link>
+        </div>
+      ))}
   </MainContainer>
 );
 
@@ -54,7 +82,7 @@ interface BlogPost {
   id: string
   title: string
   excerpt: string
-  postHero: ResponsiveImageType
+  postHero: CoverImage
 }
 interface BlogPageData {
   allBlogPosts: BlogPost[]
@@ -70,7 +98,8 @@ const BlogIndex = ({data}: BlogPageDataProps) => {
   console.log(data);
 
   const hookProps = {
-
+    noPosts: allBlogPosts.length === 0,
+    allBlogPosts
   }
 
   return (
