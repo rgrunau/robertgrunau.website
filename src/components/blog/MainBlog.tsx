@@ -1,6 +1,6 @@
 import { Image } from "react-datocms/image"
 import Link from "next/link"
-import { BlogPost } from "@/pages/blog"
+import { BlogPost } from "@/components/blog/const/interfaces"
 
 interface MainBlogProps {
   allBlogPosts: BlogPost[],

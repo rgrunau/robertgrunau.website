@@ -1,4 +1,4 @@
-import { BlogPageData } from "@/pages/blog";
+import { BlogPageData } from "@/components/blog/const/interfaces";
 import Link from 'next/link';
 
 const BlogAside = ({allBlogPosts }:BlogPageData) => (

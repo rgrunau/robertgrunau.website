@@ -1,5 +1,5 @@
 import { request } from '@/lib/datocms'
-import { CoverImage } from '@/components/home/const/interfaces';
+import { BlogPageData, BlogPost } from '@/components/blog/const/interfaces'
 import MainContainer from "@/components/common/MainContainer";
 import BlogAside from '@/components/blog/BlogAisde';
 import MainBlog from '@/components/blog/MainBlog';
@@ -64,16 +64,7 @@ export async function getStaticProps() {
   }
 }
 
-export interface BlogPost {
-  id: string
-  slug: string
-  title: string
-  excerpt: string
-  postHero: CoverImage
-}
-export interface BlogPageData {
-  allBlogPosts: BlogPost[],
-}
+
 interface BlogPageDataProps {
   data: BlogPageData,
 }
