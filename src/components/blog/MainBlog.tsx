@@ -10,7 +10,7 @@ const MainBlog = ({allBlogPosts, noPosts}: MainBlogProps) => (
   <div className='flex flex-col items-center justify-center text-center lg:col-start-1 lg:col-end-2 row-start-1 row-end-3'>
     {!noPosts && allBlogPosts.map((post) => (
       <div
-        className='p-4 mx-auto md:w-11/12 lg:w-11/12 border-b-2 border-gray-200 text-text-white my-6'
+        className='p-4 mx-auto w-11/12 lg:w-11/12 border-b-2 border-gray-200 text-text-white my-6'
         key={post.id}
       >
         <Link 
