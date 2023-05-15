@@ -3,6 +3,7 @@ import { CoverImage } from '@/components/home/const/interfaces';
 import MainContainer from "@/components/common/MainContainer";
 import BlogAside from '@/components/blog/BlogAisde';
 import MainBlog from '@/components/blog/MainBlog';
+import EmptyPosts from '@/components/blog/EmptyPosts';
 
 
 interface ViewProps {
@@ -13,14 +14,14 @@ interface ViewProps {
 const View = ({allBlogPosts, noPosts}: ViewProps) => (
   <MainContainer>
       {noPosts && (
-        <div>
-          <h1>There are no posts yet</h1>
+        <EmptyPosts text={'blog posts'}/>
+      )}
+      {allBlogPosts.length > 0 && (
+        <div className='flex flex-col lg:grid lg:grid-cols-[1fr_250px] lg:grid-rows-2'>
+          <BlogAside allBlogPosts={allBlogPosts} />
+          <MainBlog allBlogPosts={allBlogPosts} noPosts={noPosts} />
         </div>
       )}
-      <div className='flex flex-col lg:grid lg:grid-cols-[1fr_250px] lg:grid-rows-2'>
-        <BlogAside allBlogPosts={allBlogPosts} />
-        <MainBlog allBlogPosts={allBlogPosts} noPosts={noPosts} />
-      </div>
   </MainContainer>
 );
 
@@ -83,8 +84,8 @@ const BlogIndex = ({data}: BlogPageDataProps) => {
   const { allBlogPosts } = data ?? {};
 
   const hookProps = {
-    noPosts: allBlogPosts.length === 0,
-    allBlogPosts
+    noPosts: true,
+    allBlogPosts: []
   }
 
   return (
