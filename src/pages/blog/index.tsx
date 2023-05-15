@@ -78,17 +78,17 @@ export async function getStaticProps() {
 }
 
 interface BlogPost {
-  slug: string
   id: string
+  slug: string
   title: string
   excerpt: string
   postHero: CoverImage
 }
 interface BlogPageData {
-  allBlogPosts: BlogPost[]
+  allBlogPosts: BlogPost[],
 }
 interface BlogPageDataProps {
-  data: BlogPageData[]
+  data: BlogPageData,
 }
 
 
