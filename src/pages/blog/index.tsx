@@ -75,8 +75,8 @@ const BlogIndex = ({data}: BlogPageDataProps) => {
   const { allBlogPosts } = data ?? {};
 
   const hookProps = {
-    noPosts: true,
-    allBlogPosts: []
+    noPosts: allBlogPosts.length === 0,
+    allBlogPosts,
   }
 
   return (

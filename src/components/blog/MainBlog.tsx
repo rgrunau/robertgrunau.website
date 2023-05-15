@@ -16,7 +16,7 @@ const MainBlog = ({allBlogPosts, noPosts}: MainBlogProps) => (
         <Link 
           className='w-full flex flex-col gap-4 text-left'
           href={`/blog/${post.slug}`}>
-          <Image className='border-2 border-gray-200 rounded-lg' data={post.postHero.responsiveImage} />
+          <Image className='border-2 border-gray-200 rounded-lg' data={{...post.postHero.responsiveImage}} />
           <div className='px-4'>
             <h1 className='text-xl font-normal'>{post.title}</h1>
           </div>
