@@ -10,6 +10,7 @@ const BlogAside = ({allBlogPosts }:BlogPageData) => (
       <div className='flex flex-col'>
         {allBlogPosts.map((post) => (
           <Link 
+            key={post.id}
             href={post.slug}
             className='text-left text-xl mx-8 my-2'
           >
