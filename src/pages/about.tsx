@@ -1,7 +1,7 @@
 import { request } from "@/lib/datocms";
-import { plexMono } from ".";
 import { FaUserAstronaut } from "react-icons/fa";
 import { AboutPage } from "@/components/about/const/interfaces";
+import MainContainer from "@/components/common/MainContainer";
 
 
 const ABOUT_QUERY = `
@@ -35,10 +35,7 @@ interface AboutPageProps {
 export default function About({data}: AboutPageProps) {
   const {author, about} = data ?? {};
   return (
-    <main
-      id='mainContent'
-      className={`flex w-screen min-h-screen flex-col items-center md:justify-start gap-8${plexMono.className}`}
-    >
+    <MainContainer>
       <section className='flex flex-col w-full sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl sm:mx-auto items-center gap-8 p-8'>
         <div className="flex flex-col items-center justify-center lg:mx-auto">
           <div className='w-full flex flex-col sm:flex-row sm:justify-between items-center p-4'>
@@ -61,7 +58,7 @@ export default function About({data}: AboutPageProps) {
           </div>
         </div>
       </section>
-  </main>
+  </MainContainer>
   )
 }
   

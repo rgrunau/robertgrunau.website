@@ -1,16 +1,15 @@
 import { request } from '@/lib/datocms'
-import { useQuerySubscription, QueryListenerOptions, } from 'react-datocms';
-import { CoverImage, Project } from '@/components/home/const/interfaces';
-import { ProjectsPageData } from '@/components/projects/const/interfaces';
+import { useQuerySubscription, } from 'react-datocms';
 import {Image} from 'react-datocms'
 import MainContainer from '@/components/common/MainContainer';
+import { BlogPageData, BlogPost } from '@/components/blog/const/interfaces';
 
 
 export async function getStaticPaths() {
-  const data = await request({ query: `{ allProjects { slug } }` }) as ProjectsPageData;
+  const data = await request({ query: `{ allBlogPosts { slug } }` }) as BlogPageData;
 
   return {
-    paths: data.allProjects.map((project: Project) => `/projects/${project.slug}`),
+    paths: data.allBlogPosts.map((post: BlogPost) => `/blog/${post.slug}`),
     fallback: false,
   }
 }
@@ -22,10 +21,11 @@ export async function getStaticProps({ params, preview=false }: GetStaticPathPar
   
   const graphqlRequest = {
     query: `
-    query ProjectBySlug($slug: String) {
-      project(filter: {slug: {eq: $slug}}) {
-        coverImage {
+    query BlogPostBySlug($slug: String) {
+      blogPost(filter: {slug: {eq: $slug}}) {
+        postHero {
           id
+          alt
           responsiveImage {
             alt
             aspectRatio
@@ -43,23 +43,7 @@ export async function getStaticProps({ params, preview=false }: GetStaticPathPar
         id
         slug
         title
-        excerpt
-        projectImages {
-          id
-          responsiveImage {
-            alt
-            aspectRatio
-            base64
-            bgColor
-            height
-            sizes
-            src
-            srcSet
-            title
-            webpSrcSet
-            width
-          }
-        }
+        postText
       }
     }
     
@@ -92,32 +76,22 @@ interface PostProps {
 
 export default function Post({subscription, preview=false}: PostProps) {
   const { data } = useQuerySubscription(subscription); 
-  const { project } = data ?? {};
-  const { title, coverImage, excerpt, projectImages } = project ?? {};
+  const { blogPost } = data ?? {};
+  const { title, postHero, postText } = blogPost ?? {};
 
   return (
     <MainContainer>
-      <div className='w-80 sm:w-9/12 md:w-5/6 xl:w-max-[960] felx flex-col justify-center mx-auto p-2 text-text-white gap-x-4'>
+      <div className='w-full sm:w-9/12 md:w-5/6 xl:w-max-[960] felx flex-col justify-center mx-auto p-4 text-text-white gap-x-4'>
         <div className='w-full sm:w-9/12 md:w-5/6 w-max-[960] mx-auto'>
           <Image 
-            className='w-full'
-            data={coverImage.responsiveImage}/>
+            className='w-full border-2 border-text-white rounded-lg'
+            data={postHero.responsiveImage}/>
         </div>
         <div className='w-full sm:w-9/12 md:w-5/6 w-max-[960] mx-auto my-4 px-2 py-4'>
           <h2 className='text-4xl'>{title}</h2>
         </div>
         <div className='w-full px-2 py-4 sm:w-9/12 md:w-5/6 w-max-[960] mx-auto my-4'>
-          <article className='text-md xl:text-lg' dangerouslySetInnerHTML={{__html: excerpt}}/>
-        </div>
-        <div className='w-full flex flex-col items-center justify-center gap-4 my-6'>
-          {projectImages && projectImages.map((image: CoverImage) => (
-            <div key={image.id} className='ounded-lg border-2 border-text-white my-8'>
-              <Image
-                data={image.responsiveImage}
-                className='rounded-lg'
-               />
-            </div>
-          ))}
+          <article className='text-md xl:text-lg' dangerouslySetInnerHTML={{__html: postText}}/>
         </div>
       </div>
     </MainContainer>

@@ -4,6 +4,7 @@ import { DatoCmsHomePageData, Skill } from '@/components/home/const/interfaces'
 import HeroSection from '@/components/home/components/HeroSection'
 import BioSection from '@/components/home/components/BioSection'
 import SpaceSection from '@/components/home/components/SpaceSection'
+import MainContainer from '@/components/common/MainContainer'
 
 export const plexMono = IBM_Plex_Mono({ weight:['400'] ,subsets: ['latin'] })
 
@@ -44,14 +45,11 @@ export default function Home({data}: HomePageDataProps) {
   console.log(`Hey, did you look here to see if I accidentally left my api key in the code? Or accidentally shipped a console.log?`);
   return (
     <>
-      <main
-        id='mainContent'
-        className={`flex w-screen min-h-screen flex-col items-center justify-between md:justify-start ${plexMono.className}`}
-      >
+      <MainContainer>
         <HeroSection author={data.author} />
         <BioSection shortBio={data.author.shortBio} />
         <SpaceSection />
-      </main>
+      </MainContainer>
     </>
   )
 }
