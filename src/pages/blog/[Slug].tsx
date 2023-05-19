@@ -1,5 +1,5 @@
 import { request } from '@/lib/datocms'
-import { useQuerySubscription, QueryListenerOptions, } from 'react-datocms';
+import { useQuerySubscription, } from 'react-datocms';
 import {Image} from 'react-datocms'
 import MainContainer from '@/components/common/MainContainer';
 import { BlogPageData, BlogPost } from '@/components/blog/const/interfaces';
@@ -81,7 +81,7 @@ export default function Post({subscription, preview=false}: PostProps) {
 
   return (
     <MainContainer>
-      <div className='w-80 sm:w-9/12 md:w-5/6 xl:w-max-[960] felx flex-col justify-center mx-auto p-2 text-text-white gap-x-4'>
+      <div className='w-full sm:w-9/12 md:w-5/6 xl:w-max-[960] felx flex-col justify-center mx-auto p-4 text-text-white gap-x-4'>
         <div className='w-full sm:w-9/12 md:w-5/6 w-max-[960] mx-auto'>
           <Image 
             className='w-full border-2 border-text-white rounded-lg'
