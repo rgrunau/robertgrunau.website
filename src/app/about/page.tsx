@@ -17,7 +17,7 @@ const ABOUT_QUERY = `
   }
 `
 
-export async function getAboutPageData() {
+export async function getAboutPageData(): Promise<AboutPage> {
   const data = await request({
     query: ABOUT_QUERY,
   }) as AboutPage;
