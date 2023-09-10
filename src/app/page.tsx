@@ -1,6 +1,6 @@
 import { request } from '@/lib/datocms'
 
-import { DatoCmsHomePageData, Skill } from '@/components/home/const/interfaces'
+import { DatoCmsHomePageData } from '@/components/home/const/interfaces'
 import HeroSection from '@/components/home/components/HeroSection'
 import BioSection from '@/components/home/components/BioSection'
 import SpaceSection from '@/components/home/components/SpaceSection'
@@ -39,7 +39,6 @@ export async function getDatoCMSData(): Promise<DatoCmsHomePageData> {
 
 export default async function Home() {
   const data = await getDatoCMSData();
-  console.log(`Hey, did you look here to see if I accidentally left my api key in the code? Or accidentally shipped a console.log?`);
   return (
     <>
       <MainContainer>
