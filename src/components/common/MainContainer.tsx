@@ -1,4 +1,4 @@
-import { plexMono } from "@/pages"
+
 
 
 interface MainContainerProps {
@@ -7,7 +7,7 @@ interface MainContainerProps {
 const MainContainer = ( {children}:MainContainerProps ) => (
   <main
         id='mainContent'
-        className={`flex w-screen min-h-screen flex-col items-center justify-between md:justify-start ${plexMono.className}`}
+        className={`flex w-screen min-h-screen flex-col items-center justify-between md:justify-start`}
   >
     {children}
   </main>

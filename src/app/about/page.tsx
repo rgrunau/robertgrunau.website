@@ -17,23 +17,18 @@ const ABOUT_QUERY = `
   }
 `
 
-export async function getStaticProps() {
+async function getAboutPageData(): Promise<AboutPage> {
   const data = await request({
     query: ABOUT_QUERY,
-  })
+  }) as AboutPage;
 
-  return {
-    props: { data }
-  }
+  return data;
 }
 
 
-interface AboutPageProps {
-  data: AboutPage,
-}
-
-export default function About({data}: AboutPageProps) {
-  const {author, about} = data ?? {};
+export default async function About() {
+  const data = await getAboutPageData();
+  const { about, author } = data;
   return (
     <MainContainer>
       <section className='flex flex-col w-full sm:w-9/12 md:w-5/6 xl:w-full xl:max-w-7xl sm:mx-auto items-center gap-8 p-8'>
