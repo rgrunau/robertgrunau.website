@@ -27,7 +27,7 @@ const HOMEPAGE_QUERY = `
 
 
 
-export async function getDatoCMSData(): Promise<DatoCmsHomePageData> {
+async function getDatoCMSData(): Promise<DatoCmsHomePageData> {
   const data = await request({
     query: HOMEPAGE_QUERY,
   }) as DatoCmsHomePageData;
