@@ -1,9 +1,10 @@
-import { Image } from "react-datocms/image"
+
 import Link from "next/link"
-import { BlogPost } from "@/components/blog/const/interfaces"
+import Image from "next/image"
+import { SanityBlogPost } from "@/sanity/sanity-queries"
 
 interface MainBlogProps {
-  allBlogPosts: BlogPost[],
+  allBlogPosts: SanityBlogPost[],
   noPosts: boolean
 }
 const MainBlog = ({allBlogPosts, noPosts}: MainBlogProps) => (
@@ -11,17 +12,19 @@ const MainBlog = ({allBlogPosts, noPosts}: MainBlogProps) => (
     {!noPosts && allBlogPosts.map((post) => (
       <div
         className='p-4 mx-auto w-11/12 lg:w-11/12 border-b-2 border-gray-200 text-text-white my-6'
-        key={post.id}
+        key={post._id}
       >
         <Link 
           className='w-full flex flex-col gap-4 text-left'
-          href={`/blog/${post.slug}`}>
-          <Image className='border-2 border-gray-200 rounded-lg' data={{...post.postHero.responsiveImage}} />
+          href={`/blog/${post.slug}`}
+        >
+          <Image className='border-2 border-gray-200 rounded-lg' src={post.mainImage} alt={post.mainImageAlt} />
+          {/* <Image className='border-2 border-gray-200 rounded-lg' data={{...post.postHero.responsiveImage}} /> */}
           <div className='px-4'>
             <h1 className='text-xl font-normal'>{post.title}</h1>
           </div>
           <div className='text-md font-thin '>
-            <article className='px-4' dangerouslySetInnerHTML={{__html: post.excerpt}} />
+            {/* <article className='px-4' dangerouslySetInnerHTML={{__html: post.excerpt}} /> */}
           </div>
         </Link>
       </div>

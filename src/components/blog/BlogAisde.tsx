@@ -1,7 +1,12 @@
-import { BlogPageData } from "@/components/blog/const/interfaces";
+
+import { SanityBlogPost } from '@/sanity/sanity-queries';
 import Link from 'next/link';
 
-const BlogAside = ({allBlogPosts }:BlogPageData) => (
+interface BlogAsideProps {
+  allBlogPosts: SanityBlogPost[]
+}
+
+const BlogAside = ({allBlogPosts }:BlogAsideProps) => (
   <aside className='hidden lg:block lg:col-start-2 lg:col-end-3 lg:row-span-2 text-yellow-200'>
     <div className='flex flex-col items-center justify-center text-center px-8 py-2 w-full'>
       <div className='mt-8 mb-4 border-b-2 border-b-yellow-200'>
@@ -10,7 +15,7 @@ const BlogAside = ({allBlogPosts }:BlogPageData) => (
       <div className='flex flex-col'>
         {allBlogPosts.map((post) => (
           <Link 
-            key={post.id}
+            key={post._id}
             href={post.slug}
             className='text-left text-xl mx-8 my-2'
           >
