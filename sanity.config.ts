@@ -6,12 +6,10 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'portfolio-cms',
-
   projectId: 'vlwcrgfi',
   dataset: 'production',
-
   plugins: [deskTool(), visionTool()],
-
+  basePath: '/studio',
   schema: {
     types: schemaTypes,
   },
