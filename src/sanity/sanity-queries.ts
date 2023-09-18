@@ -13,6 +13,8 @@ export interface SanityBlogPost {
   categories: string[];
   mainImage: string;
   mainImageAlt: string;
+  mainImageWidth: number;
+  mainImageHeight: number;
 }
 
 export const getBlogPosts = async (): Promise<SanityBlogPost[]> => {
@@ -26,6 +28,8 @@ export const getBlogPosts = async (): Promise<SanityBlogPost[]> => {
       "categories": categories[]->title,
       "mainImage": mainImage.asset->url,
       "mainImageAlt": mainImage.alt,
+      "mainImageWidth": mainImage.metadata.dimensions.width,
+      "mainImageHeight": mainImage.metadata.dimensions.height,
       body,
     }
   `)

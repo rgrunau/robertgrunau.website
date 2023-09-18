@@ -1,5 +1,4 @@
 import BlogAside from "@/components/blog/BlogAisde";
-import MainContainer from "@/components/common/MainContainer";
 import { getBlogPosts } from "@/sanity/sanity-queries";
 
 export default async function BlogPageLayout({children}: {children: React.ReactNode}) {
@@ -7,13 +6,12 @@ export default async function BlogPageLayout({children}: {children: React.ReactN
   const blogPageData = await getBlogPosts();
 
   return (
-    <div className="w-full">
-      <main>
+    <div className="w-full flex flex-col xl:flex-row">
+      <main className="W-full xl:w-2/3">
         {children}
       </main>
       <BlogAside allBlogPosts={blogPageData} />
     </div>
-   
   )
   
 }
