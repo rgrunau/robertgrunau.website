@@ -1,51 +1,29 @@
-import { request } from '@/lib/datocms'
-
-import { DatoCmsHomePageData } from '@/components/home/const/interfaces'
-import HeroSection from '@/components/home/components/HeroSection'
-import BioSection from '@/components/home/components/BioSection'
-import SpaceSection from '@/components/home/components/SpaceSection'
-import MainContainer from '@/components/common/MainContainer'
-
-
-
-const HOMEPAGE_QUERY = `
-  query HomePage {
-    author {
-      authorname
-      shortBio
-      skills {
-        id
-        skillType
-      }
-      jobTitles {
-        id
-        job
-      }
-    }
-  }
-`;
-
-
-
-async function getDatoCMSData(): Promise<DatoCmsHomePageData> {
-  const data = await request({
-    query: HOMEPAGE_QUERY,
-  }) as DatoCmsHomePageData;
-
-  return data;
-}
-
-
+import MainContainer from "@/components/common/MainContainer";
+import Navigation from "@/components/layout/Navigation";
+import { getHomePageData } from "@/sanity/sanity-queries";
 
 export default async function Home() {
-  const data = await getDatoCMSData();
+  const data = await getHomePageData();
+
   return (
     <>
       <MainContainer>
-        <HeroSection author={data.author} />
-        <BioSection shortBio={data.author.shortBio} />
-        <SpaceSection />
+        <div className="flex flex-col items-center justify-start p-2 text-center">
+          <div className="w-full">
+            <h1 className="text-rg-orange text-[100px] leading-[100px]">
+              {data.page_headline}
+            </h1>
+          </div>
+          <div className="w-full">
+            <Navigation />
+          </div>
+          <div className="w-full">
+            <h2 className="text-rg-blue text-[75px] leading-[75px]">
+              {data.page_sub_headline}
+            </h2>
+          </div>
+        </div>
       </MainContainer>
     </>
-  )
+  );
 }

@@ -1,8 +1,8 @@
-import { groq } from 'next-sanity'
-import client from './sanity.client'
+import { groq } from "next-sanity";
+import client from "./sanity.client";
 
 interface Author {
-  name: string
+  name: string;
 }
 export interface SanityBlogPost {
   _id: string;
@@ -32,5 +32,27 @@ export const getBlogPosts = async (): Promise<SanityBlogPost[]> => {
       "mainImageHeight": mainImage.metadata.dimensions.height,
       body,
     }
-  `)
+  `);
+};
+
+interface SanityHomePageData {
+  page_title: string;
+  page_headline: string;
+  page_sub_headline: string;
+  page_image: string;
+  page_image_alt: string;
+  page_description: string;
 }
+
+export const getHomePageData = async (): Promise<SanityHomePageData> => {
+  return await client.fetch(groq`
+    *[_type == "home"][0]{
+      page_title,
+      page_headline,
+      page_sub_headline,
+      "page_image": page_image.asset->url,
+      "page_image_alt": page_image.alt,
+      page_description,
+    }
+  `);
+};
