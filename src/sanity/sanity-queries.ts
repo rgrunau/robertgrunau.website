@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
 import client from "./sanity.client";
+import { PortableTextBlock } from "sanity";
 
 interface Author {
   name: string;
@@ -41,7 +42,9 @@ interface SanityHomePageData {
   page_sub_headline: string;
   page_image: string;
   page_image_alt: string;
-  page_description: string;
+  page_image_width: number;
+  page_image_height: number;
+  page_description: PortableTextBlock[];
 }
 
 export const getHomePageData = async (): Promise<SanityHomePageData> => {
@@ -52,6 +55,8 @@ export const getHomePageData = async (): Promise<SanityHomePageData> => {
       page_sub_headline,
       "page_image": page_image.asset->url,
       "page_image_alt": page_image.alt,
+      "page_image_width": page_image.metadata.dimensions.width,
+      "page_image_height": page_image.metadata.dimensions.height,
       page_description,
     }
   `);
