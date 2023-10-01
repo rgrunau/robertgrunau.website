@@ -42,6 +42,16 @@ export default async function Home() {
             <article className="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 text-2xl">
               <PortableText value={data.page_description} />
             </article>
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <div>
+                <h3>{data.newsletterTitle}</h3>
+              </div>
+              <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 text-2xl">
+                <article>
+                  <PortableText value={data.newsletterBlurb} />
+                </article>
+              </div>
+            </div>
           </div>
         </section>
       </MainContainer>

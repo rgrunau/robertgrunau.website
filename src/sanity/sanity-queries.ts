@@ -45,6 +45,8 @@ interface SanityHomePageData {
   page_image_width: number;
   page_image_height: number;
   page_description: PortableTextBlock[];
+  newsletterTitle: string;
+  newsletterBlurb: PortableTextBlock[];
 }
 
 export const getHomePageData = async (): Promise<SanityHomePageData> => {
@@ -58,6 +60,8 @@ export const getHomePageData = async (): Promise<SanityHomePageData> => {
       "page_image_width": page_image.metadata.dimensions.width,
       "page_image_height": page_image.metadata.dimensions.height,
       page_description,
+      newsletter_title,
+      newsletter_blurb,
     }
   `);
 };

@@ -33,5 +33,15 @@ export default defineType({
       title: "Page Description",
       type: "blockContent",
     }),
+    defineField({
+      name: "newsletter_title",
+      title: "Newsletter Title",
+      type: "string",
+    }),
+    defineField({
+      name: "newsletter_blurb",
+      title: "Newsletter Blurb",
+      type: "blockContent",
+    }),
   ],
 });
