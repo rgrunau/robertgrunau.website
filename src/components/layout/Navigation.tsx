@@ -14,7 +14,7 @@ const Navigation = () => (
         {navLinks.map(({ route, title }) => (
           <li
             key={title}
-            className="text-bg-white bg-dark w-4/5 text-4xl md:text-2xl my-2 py-2 odd:rotate-3 odd:hover:rotate-0 even:rotate--3 even:hover:rotate-0 transition-all duration-500 hover:bg-rg-orange hover:text-dark"
+            className="text-bg-white text-center bg-dark w-4/5 text-4xl md:text-2xl my-2 py-2 odd:rotate-3 odd:hover:rotate-0 even:rotate--3 even:hover:rotate-0 transition-all duration-500 hover:bg-rg-orange hover:text-dark"
           >
             <Link href={route}>{title}</Link>
           </li>
