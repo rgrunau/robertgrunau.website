@@ -1,9 +1,5 @@
-import { useCallback } from "react";
-import Navigation from "@/components/layout/Navigation";
+import Navigation from "@/app/components/layout/Navigation";
 import Image from "next/image";
-
-import { TbBrandNextjs } from "react-icons/tb";
-import { Author, Skill } from "../const/interfaces";
 
 interface HeroSectionProps {
   pageHeadline: string;

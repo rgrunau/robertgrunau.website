@@ -1,12 +1,8 @@
-import MainBlog from "@/components/blog/MainBlog";
+import MainBlog from "@/app/components/blog/MainBlog";
 import { getBlogPosts } from "@/sanity/sanity-queries";
 
-
 export default async function BlogPage() {
-
   const blogPageData = await getBlogPosts();
   const noPosts = blogPageData.length === 0;
-  return (
-    <MainBlog allBlogPosts={blogPageData} noPosts={noPosts} />
-  )
+  return <MainBlog allBlogPosts={blogPageData} noPosts={noPosts} />;
 }
