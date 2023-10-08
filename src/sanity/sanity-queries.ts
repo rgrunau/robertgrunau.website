@@ -45,8 +45,8 @@ interface SanityHomePageData {
   page_image_width: number;
   page_image_height: number;
   page_description: PortableTextBlock[];
-  newsletterTitle: string;
-  newsletterBlurb: PortableTextBlock[];
+  newsletter_title: string;
+  newsletter_blurb: PortableTextBlock[];
 }
 
 export const getHomePageData = async (): Promise<SanityHomePageData> => {

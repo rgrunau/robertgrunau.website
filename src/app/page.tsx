@@ -1,55 +1,60 @@
 import MainContainer from "@/components/common/MainContainer";
-import Navigation from "@/components/layout/Navigation";
+import HeroSection from "@/components/home/components/HeroSection";
 import { getHomePageData } from "@/sanity/sanity-queries";
 import { PortableText } from "@portabletext/react";
-import Image from "next/image";
 
 export default async function Home() {
   const data = await getHomePageData();
-
   return (
     <>
       <MainContainer>
-        <div className="w-full lg:w-11/12 flex flex-col lg:flex-row lg:flex-wrap items-center justify-start p-2 text-center lg:text-left">
-          <div className="w-full lg:w-1/2">
-            <h1 className="text-rg-orange text-[100px] lg:text-[175px] leading-[100px] lg:leading-[150px]">
-              {data.page_headline}
-            </h1>
-          </div>
-          <div className="w-full lg:w-1/2 ">
-            <Navigation />
-          </div>
-          <div className="w-full lg:my-1 lg:py-8 lg:flex lg:items-center lg:justify-between">
-            <div className="none lg:flex lg:1/2 lg:items-center lg:justify-center">
-              <div className="w-[500px] h-[350px] overflow-hidden">
-                <Image
-                  src={data.page_image}
-                  alt={data.page_image_alt}
-                  width={1920}
-                  height={1080}
-                />
-              </div>
-            </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-dark text-[75px] lg:text-[125px] lg:justify-self-end leading-[75px] lg:leading-[125px]">
-                {data.page_sub_headline}
-              </h2>
-            </div>
-          </div>
-        </div>
-        <section className="w-full bg-rg-orange lg:py-8 flex lg:flex-row items-center lg:justify-center">
-          <div className="w-full lg:max-w-[1350px] flex lg:flex-row">
-            <article className="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 text-2xl">
+        <HeroSection
+          pageHeadline={data.page_headline}
+          subHeadline={data.page_sub_headline}
+          heroImage={data.page_image}
+          heroAlt={data.page_image_alt}
+        />
+        <section className="w-full bg-rg-orange lg:py-8 flex flex-col lg:flex-row items-center lg:justify-center">
+          <div className="w-full lg:max-w-[1350px] flex flex-col lg:flex-row">
+            <article className="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 text-2xl my-4 px-2 font-light">
               <PortableText value={data.page_description} />
             </article>
-            <div className="w-full lg:w-1/2 flex flex-col">
+            <div className="w-full lg:w-1/2 flex flex-col my-3 px-2">
               <div>
-                <h3>{data.newsletterTitle}</h3>
+                <h3>{data.newsletter_title}</h3>
               </div>
-              <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 text-2xl">
-                <article>
-                  <PortableText value={data.newsletterBlurb} />
+              <div className="w-full flex flex-col items-center justify-center p-2">
+                <article className="w-full text-2xl">
+                  <PortableText value={data.newsletter_blurb} />
                 </article>
+                <div className="w-full">
+                  <div className="w-full my-6">
+                    <form className="w-full flex-col items-center justify-start">
+                      <div className="w-full flex flex-col">
+                        <div className="w-full sr-only">
+                          <label htmlFor="email">Email</label>
+                        </div>
+                        <div className="w-full lg:w-2/3">
+                          <input
+                            className="w-full p-2 text-2xl rounded-md"
+                            id="newsletterSignUp"
+                            name="newsletterSignUp"
+                            type="email"
+                            placeholder="Your Email"
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full lg:w-1/3 my-3">
+                        <button
+                          type="submit"
+                          className="w-full bg-dark text-rg-orange text-2xl p-2 rounded-md"
+                        >
+                          Sign Up
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
