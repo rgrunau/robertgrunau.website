@@ -13,8 +13,8 @@ export default function NewsletterSection({
 }: NewsletterSectionProps) {
   return (
     <div className="w-full lg:w-1/2 flex flex-col my-4 px-2">
-      <div>
-        <h3>{newsletterTitle}</h3>
+      <div className="w-full">
+        <h3 className="text-2xl font-semibold">{newsletterTitle}</h3>
       </div>
       <div className="w-full flex flex-col items-center justify-center px-2">
         <article className="w-full text-2xl lg:text-xl">
