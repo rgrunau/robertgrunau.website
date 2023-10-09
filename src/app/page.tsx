@@ -2,10 +2,12 @@ import MainContainer from "@/app/components/common/MainContainer";
 import HeroSection from "@/app/components/home/components/HeroSection";
 import SubHero from "@/app/components/home/components/SubHero";
 
-import { getHomePageData } from "@/sanity/sanity-queries";
+import { getHomePageData, getBlogPosts } from "@/sanity/sanity-queries";
+import BlogSection from "./components/home/components/BlogSection";
 
 export default async function Home() {
   const data = await getHomePageData();
+  const blogPosts = await getBlogPosts();
   return (
     <>
       <MainContainer>
@@ -20,16 +22,8 @@ export default async function Home() {
           newsLetterTitle={data.newsletter_title}
           newsLetterBlurb={data.newsletter_blurb}
         />
-        <section className="w-full bg-slate-50 py-5">
-          <div className="w-full lg:max-w-[1350px] mx-auto p-4 flex flex-col items-center justify-center">
-            <div className="w-full">
-              <h2 className="text-2xl">Latest Posts</h2>
-            </div>
-          </div>
-        </section>
+        <BlogSection blogPosts={blogPosts} />
       </MainContainer>
     </>
   );
 }
-
-export const dynamic = "force-dynamic";

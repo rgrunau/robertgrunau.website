@@ -31,7 +31,6 @@ export const getBlogPosts = async (): Promise<SanityBlogPost[]> => {
       "mainImageAlt": mainImage.alt,
       "mainImageWidth": mainImage.metadata.dimensions.width,
       "mainImageHeight": mainImage.metadata.dimensions.height,
-      body,
     }
   `);
 };
