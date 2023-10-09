@@ -20,7 +20,16 @@ export default async function Home() {
           newsLetterTitle={data.newsletter_title}
           newsLetterBlurb={data.newsletter_blurb}
         />
+        <section className="w-full bg-slate-50 py-5">
+          <div className="w-full max-w-[1350px] mx-auto p-4 flex flex-col items-center justify-center">
+            <div className="w-full">
+              <h2 className="text-2xl">Latest Posts</h2>
+            </div>
+          </div>
+        </section>
       </MainContainer>
     </>
   );
 }
+
+export const dynamic = "force-dynamic";

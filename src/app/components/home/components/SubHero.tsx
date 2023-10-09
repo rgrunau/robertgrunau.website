@@ -16,7 +16,7 @@ export default function SubHero({
   return (
     <section className="w-full bg-rg-orange lg:py-8 flex flex-col lg:flex-row items-center lg:justify-center">
       <div className="w-full lg:max-w-[1350px] flex flex-col items-center lg:flex-row">
-        <article className="w-full lg:w-1/2 flex flex-col items-center justify-center p-4text-2xl my-4 font-light lg:text-xl">
+        <article className="w-full lg:w-1/2 flex flex-col items-center justify-center p-4 text-2xl my-4 font-light lg:text-xl">
           <PortableText value={smallBio} />
         </article>
         <NewsletterSection

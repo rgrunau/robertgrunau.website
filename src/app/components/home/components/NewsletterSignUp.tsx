@@ -7,13 +7,13 @@ export default function NewsLetterSignUp() {
         <div className="w-full sr-only">
           <label htmlFor="email">Email</label>
         </div>
-        <div className="w-full lg:w-2/3 p-2">
+        <div className="w-full lg:w-2/3 pr-2">
           <input
             className="w-full p-2 text-xl rounded-md"
             id="newsletterSignUp"
             name="newsletterSignUp"
             type="email"
-            placeholder="Your Email"
+            placeholder="Sign up for A Patched Sail"
           />
         </div>
         <div className="w-full lg:w-1/3 my-3">
