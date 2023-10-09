@@ -27,7 +27,13 @@ const HeroSection = ({
       <div className="w-full lg:my-1 lg:py-8 lg:flex lg:items-center lg:justify-between">
         <div className="none lg:flex lg:1/2 lg:items-center lg:justify-center">
           <div className="hidden lg:block w-[500px] h-[350px] overflow-hidden">
-            <Image src={heroImage} alt={heroAlt} width={1920} height={1080} />
+            <Image
+              src={heroImage}
+              alt={heroAlt || ""}
+              width={1920}
+              height={1080}
+              priority
+            />
           </div>
         </div>
         <div className="w-full lg:w-1/2">
