@@ -8,12 +8,12 @@ import {
   getProjects,
 } from "@/sanity/sanity-queries";
 import BlogSection from "./components/home/components/BlogSection";
+import ProjectsSection from "./components/home/components/ProjectsSection";
 
 export default async function Home() {
   const data = await getHomePageData();
   const blogPosts = await getBlogPosts();
   const projects = await getProjects();
-  console.log(projects);
   return (
     <>
       <MainContainer>
@@ -28,10 +28,14 @@ export default async function Home() {
           newsLetterTitle={data.newsletter_title}
           newsLetterBlurb={data.newsletter_blurb}
         />
-        <section className="w-full flex flex-col items-center justify-center lg:flex-row lg:justify-between">
-          <div></div>
-          <div className="w-full lg:w-1/2">
-            <BlogSection blogPosts={blogPosts} />
+        <section className="w-full  bg-slate-50">
+          <div className="lg:max-w-[1350px] mx-auto flex flex-col items-center justify-center lg:flex-row lg:justify-between">
+            <div className="w-full lg:w-1/2">
+              <ProjectsSection projects={projects} />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <BlogSection blogPosts={blogPosts} />
+            </div>
           </div>
         </section>
       </MainContainer>

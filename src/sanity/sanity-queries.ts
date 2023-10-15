@@ -34,7 +34,7 @@ export const getBlogPosts = async (): Promise<SanityBlogPost[]> => {
     }
   `);
 };
-interface AllProjectsReturn {
+export interface AllProjectsReturn {
   _id: string;
   _createdAt: string;
   projectTitle: string;
@@ -44,7 +44,7 @@ interface AllProjectsReturn {
   mainImageWidth: number;
   mainImageHeight: number;
 }
-export const getProjects = async (): Promise<AllProjectsReturn> => {
+export const getProjects = async (): Promise<AllProjectsReturn[]> => {
   return await client.fetch(groq`
     *[_type == "project"]{
       _id,

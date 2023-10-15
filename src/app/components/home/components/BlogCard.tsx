@@ -16,7 +16,7 @@ export default function BlogCard({ post }: BlogCardProps) {
     });
   };
   return (
-    <li key={post._id} className="w-full md:w-1/2 lg:w-1/3">
+    <li key={post._id} className="w-full md:w-1/2">
       <Link
         href={`/blog/${post.slug}`}
         className="w-full flex flex-col items-start justify-start shadow-sm"
