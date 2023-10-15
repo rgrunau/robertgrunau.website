@@ -34,6 +34,28 @@ export const getBlogPosts = async (): Promise<SanityBlogPost[]> => {
     }
   `);
 };
+interface AllProjectsReturn {
+  _id: string;
+  _createdAt: string;
+  projectTitle: string;
+  slug: string;
+  mainImage: string;
+  mainImageAlt: string;
+  mainImageWidth: number;
+  mainImageHeight: number;
+}
+export const getProjects = async (): Promise<AllProjectsReturn> => {
+  return await client.fetch(groq`
+    *[_type == "project"]{
+      _id,
+      _createdAt,
+      projectTitle,
+      "slug": slug.current,
+      "mainImage": mainImage.asset->url,
+      mainImageAlt,
+    }
+  `);
+};
 
 interface SanityHomePageData {
   page_title: string;

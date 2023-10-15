@@ -2,12 +2,18 @@ import MainContainer from "@/app/components/common/MainContainer";
 import HeroSection from "@/app/components/home/components/HeroSection";
 import SubHero from "@/app/components/home/components/SubHero";
 
-import { getHomePageData, getBlogPosts } from "@/sanity/sanity-queries";
+import {
+  getHomePageData,
+  getBlogPosts,
+  getProjects,
+} from "@/sanity/sanity-queries";
 import BlogSection from "./components/home/components/BlogSection";
 
 export default async function Home() {
   const data = await getHomePageData();
   const blogPosts = await getBlogPosts();
+  const projects = await getProjects();
+  console.log(projects);
   return (
     <>
       <MainContainer>
@@ -22,7 +28,12 @@ export default async function Home() {
           newsLetterTitle={data.newsletter_title}
           newsLetterBlurb={data.newsletter_blurb}
         />
-        <BlogSection blogPosts={blogPosts} />
+        <section className="w-full flex flex-col items-center justify-center lg:flex-row lg:justify-between">
+          <div></div>
+          <div className="w-full lg:w-1/2">
+            <BlogSection blogPosts={blogPosts} />
+          </div>
+        </section>
       </MainContainer>
     </>
   );
