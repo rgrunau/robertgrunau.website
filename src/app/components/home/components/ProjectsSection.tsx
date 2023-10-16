@@ -19,7 +19,7 @@ export default function ProjectsSection({ projects }: ProjectSectionProps) {
               <li key={project._id}>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="w-full flex flex-col justify-start items-start my-4"
+                  className="w-full flex flex-col justify-start items-start"
                 >
                   <div className="w-full">
                     <Image

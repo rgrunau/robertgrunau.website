@@ -28,7 +28,7 @@ export default async function Home() {
           newsLetterTitle={data.newsletter_title}
           newsLetterBlurb={data.newsletter_blurb}
         />
-        <section className="w-full bg-slate-50 flex flex-wrap justify-between items-start">
+        <section className="w-full bg-slate-50">
           <div className="w-full mx-auto flex flex-col items-center justify-center lg:flex-row lg:justify-between">
             <div className="w-full lg:w-1/2">
               <ProjectsSection projects={projects} />

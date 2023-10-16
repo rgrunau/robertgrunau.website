@@ -50,6 +50,7 @@ export const getProjects = async (): Promise<AllProjectsReturn[]> => {
       _id,
       _createdAt,
       projectTitle,
+      publishedAt,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
       mainImageAlt,
