@@ -16,7 +16,7 @@ export default function BlogCard({ post }: BlogCardProps) {
     });
   };
   return (
-    <li key={post._id} className="w-full md:w-1/2">
+    <li key={post._id} className="w-full text-white">
       <Link
         href={`/blog/${post.slug}`}
         className="w-full flex flex-col items-start justify-start"
@@ -43,7 +43,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             {post.categories.map((category) => (
               <li
                 key={category}
-                className="mx-2 text-sm font-semibold bg-dark text-white px-2 py-1 rounded-md"
+                className="mx-2 text-sm font-semibold bg-white text-dark px-2 py-1 rounded-md"
               >
                 {category}
               </li>

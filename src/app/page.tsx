@@ -28,12 +28,12 @@ export default async function Home() {
           newsLetterTitle={data.newsletter_title}
           newsLetterBlurb={data.newsletter_blurb}
         />
-        <section className="w-full  bg-slate-50 py-6">
-          <div className="lg:max-w-[1350px] mx-auto flex flex-col items-center justify-center lg:flex-row lg:justify-between">
+        <section className="w-full bg-slate-50 flex flex-wrap justify-between items-start">
+          <div className="w-full mx-auto flex flex-col items-center justify-center lg:flex-row lg:justify-between">
             <div className="w-full lg:w-1/2">
               <ProjectsSection projects={projects} />
             </div>
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 bg-dark">
               <BlogSection blogPosts={blogPosts} />
             </div>
           </div>
