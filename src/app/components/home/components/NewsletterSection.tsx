@@ -14,10 +14,10 @@ export default function NewsletterSection({
   return (
     <div className="w-full lg:w-1/2 flex flex-col my-4 px-2">
       <div className="w-full px-2 py-3">
-        <h3 className="text-3xl font-semibold">{newsletterTitle}</h3>
+        <h3 className="text-5xl font-semibold">{newsletterTitle}</h3>
       </div>
       <div className="w-full flex flex-col items-center justify-center px-2">
-        <article className="w-full font-light lg:text-xl">
+        <article className="w-full font-light text-2xl">
           <PortableText value={newsletterBlurb} />
         </article>
         <div className="w-full">

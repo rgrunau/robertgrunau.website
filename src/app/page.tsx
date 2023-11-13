@@ -9,6 +9,8 @@ import {
 } from "@/sanity/sanity-queries";
 import BlogSection from "./components/home/components/BlogSection";
 import ProjectsSection from "./components/home/components/ProjectsSection";
+import Link from "next/link";
+import Image from "next/image";
 
 export default async function Home() {
   const data = await getHomePageData();
@@ -28,14 +30,38 @@ export default async function Home() {
           newsLetterTitle={data.newsletter_title}
           newsLetterBlurb={data.newsletter_blurb}
         />
-        <section className="w-full bg-slate-50">
-          <div className="w-full mx-auto flex flex-col items-center justify-center lg:flex-row lg:justify-between">
-            <div className="w-full lg:w-1/2">
-              <ProjectsSection projects={projects} />
-            </div>
-            <div className="w-full lg:w-1/2 bg-dark">
-              <BlogSection blogPosts={blogPosts} />
-            </div>
+        <section className="w-full max-w-[1350px] flex flex-col lg:flex-row lg:items-center px-4 py-8">
+          <div className="w-full lg:flex items-center justify-start">
+            <h2 className="text-5xl lg:text-7xl font-bold text-black">
+              Projects
+            </h2>
+          </div>
+          <div className="w-full py-4">
+            <ul>
+              {projects.map((project) => (
+                <Link
+                  key={project.slug}
+                  href={`/work/${project.slug}`}
+                  className="font-light text-black"
+                >
+                  <div className="w-full flex flex-col">
+                    <div className="w-full">
+                      <Image
+                        src={project.mainImage}
+                        alt={project.mainImageAlt}
+                        width={2336}
+                        height={1460}
+                      />
+                    </div>
+                    <div className="mt-3">
+                      <h3 className="text-3xl font-light text-black">
+                        {project.projectTitle}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </ul>
           </div>
         </section>
       </MainContainer>
