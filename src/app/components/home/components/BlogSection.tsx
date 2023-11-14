@@ -8,11 +8,12 @@ interface BlogSectionProps {
 
 export default function BlogSection({ blogPosts }: BlogSectionProps) {
   const [showBlog, setShowBlog] = useState<boolean>(false);
+  const [postToRender, setPostToRender] = useState<SanityBlogPost>();
   const postRef = useRef<HTMLLIElement>(null);
   const pullPostImage = () => {
     const postId = postRef.current?.id;
     const post = blogPosts.find((post) => post._id === postId);
-
+    setPostToRender(post);
     setShowBlog(!showBlog);
   };
   const hidePostImage = () => {
@@ -46,7 +47,11 @@ export default function BlogSection({ blogPosts }: BlogSectionProps) {
             </ul>
           </div>
         </div>
-        {showBlog && <div className="hidden lg:flex">Blog Image</div>}
+        {showBlog && (
+          <div className="hidden lg:flex">
+            {postToRender && <div>{postToRender.title}</div>}
+          </div>
+        )}
       </div>
     </section>
   );
