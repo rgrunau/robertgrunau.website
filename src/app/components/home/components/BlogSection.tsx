@@ -1,5 +1,6 @@
 "use client";
 import { SanityBlogPost } from "@/sanity/sanity-queries";
+import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 interface BlogSectionProps {
@@ -48,8 +49,17 @@ export default function BlogSection({ blogPosts }: BlogSectionProps) {
           </div>
         </div>
         {showBlog && (
-          <div className="hidden lg:flex">
-            {postToRender && <div>{postToRender.title}</div>}
+          <div className="hidden lg:flex items-center justify-center">
+            {postToRender && (
+              <div>
+                <Image
+                  src={postToRender?.mainImage}
+                  alt={postToRender?.mainImageAlt}
+                  width={400}
+                  height={400}
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
