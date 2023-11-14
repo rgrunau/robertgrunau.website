@@ -29,6 +29,7 @@ export default async function Home() {
           newsLetterBlurb={data.newsletter_blurb}
         />
         <ProjectsSection projects={projects} />
+        <BlogSection blogPosts={blogPosts} />
       </MainContainer>
     </>
   );
